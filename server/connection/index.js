@@ -6,7 +6,7 @@ const config = process.env.DATABASE_URL ? {
 } : {
     user: 'postgres',
     host: 'localhost',
-    database: 'db_qcacac',
+    database: 'db_qcacace',
     password: 'root',
     port: 5432
 }

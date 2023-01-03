@@ -28,10 +28,14 @@ const Index = () => {
                                 <Grid item xs= { 12 } sm= { 7 } lg= { 8 }>
                                     <Stack direction= "column" justifyContent= "center" alignItems= "stretch" sx= {{ padding: '20px 30px' }}>
                                         <Typography sx= { cardquote }><FontAwesomeIcon icon= { solid('quote-left') } /></Typography>
-                                        <Typography sx= { cardtitle }>Owner 1 & Pet 1</Typography>
+                                        <Typography sx= { cardtitle }>Thraia Mercadejas and Maggy</Typography>
                                         <Typography sx= { cardaddress }>Novaliches, Holycross</Typography>
-                                        <Typography sx= { cardmessage }>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus finibus magna. Nulla aliquet lacinia metus placerat tempor. 
-                                            Pellentesque sed massa nec nisl suscipit euismod.</Typography>
+                                        <Typography sx= { cardmessage }>I was a student living alone in the city when the pandemic started in 2020. Being the social person that I am, quarantine made me feel sad. 
+                                        I dont have someone to talk to in the house since my family is in our province and I am not allowed to go outside to see my friends either but I had no choice since I need to stay here in Quezon City. 
+                                        All I do for months is to sit in front of my laptop and study. My anxiety was getting worse when suddenly, I saw the adoption post of Quezon City Animal Care and Adoption Center.  
+                                        A cute dog caught my attention. 
+                                        Her beautiful eyes suddenly made me feel at ease. It is like talking to me through her eyes and thats when an idea came to my mind. 
+                                        I want to adopt this cute little dog!.</Typography>
                                     </Stack>
                                 </Grid>
                             </Grid>
