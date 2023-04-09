@@ -53,7 +53,7 @@ class MissingPets {
             body: {
                 name: 'Fur Mom/Dad',
                 intro: `HELP! Our friend needs it! Let's make sure our missing pets find their way home. 
-                To learn more about how to return a pet to its family, please get in touch with us or visit qcacaceservices.com for more details. Thank you!<br><br>
+                To learn more about how to return a pet to its family, please get in touch with us or visit https://qcacace.vercel.app/ for more details. Thank you!<br><br>
 
                 Note: You can also report a missing pet through sending the details here. Once verified, 
                 we will post it on the website to easily reach people who can help bring them back.  We are pleased to assist you in finding your missing pet.

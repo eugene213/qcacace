@@ -41,13 +41,14 @@ class AnimalCare {
         let mail = generator.generate({
             body: {
                 name: 'Fur Mom/Dad',
-                intro: `Inform natin si subscriber about sa program natin, tapos ito yung title: ${program.title}`,
+                intro: `Good day! We are happy to tell you that we have a new program entitled <b> ${program.title} </b>.  
+                This program will surely make our pet happy, and healthy! To see more details about this program, please visit  `,
                 
                 outro: 'Please contact me for additional help.'
             }
         });
 
-        emails.forEach(data => transporter.sendMail({ from: global.USER, to: data.email, subject: `Animal Care`, html: mail }));
+        emails.forEach(data => transporter.sendMail({ from: global.USER, to: data.email, subject: `QC ACAC: Animal Care`, html: mail }));
         return { result: 'success', message: 'Successfully saved!' }
     }
 

@@ -99,7 +99,7 @@ class Pets {
             body: {
                 name: 'Fur Mom/Dad',
                 intro: `Hello, Good news! We have a new friend that is in need of your love and care. Let's welcome Pet ID:<b> ${pet.series_no} </b>. 
-                <br><br>To see more about our new pet, please visit  qcacaceservices.com. Thank you!
+                <br><br>To see more about our new pet, please visit  https://qcacace.vercel.app/. Thank you!
                 `,
                 
                 outro: 'Please contact me for additional help.'
