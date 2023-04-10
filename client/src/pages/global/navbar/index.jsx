@@ -36,6 +36,8 @@ const Index = () => {
                             onClick= { () => { localStorage.setItem('nav', 'pets'); setIsActive('pets'); } }>Pet Gallery</Typography>
                         <Typography variant= "body2" sx= { isActive === 'services' ? activeLink : link } component= { Link } to= "/services/pet-program" 
                             onClick= { () => { localStorage.setItem('nav', 'services'); setIsActive('services'); } }>Services</Typography>
+                        <Typography variant= "body2" sx= { isActive === 'faqs' ? activeLink : link } component= { Link } to= "/faqs" 
+                            onClick= { () => { localStorage.setItem('nav', 'faqs'); setIsActive('faqs'); } }>FAQs</Typography>
                     </Stack>
                 </Stack>
             </Container>

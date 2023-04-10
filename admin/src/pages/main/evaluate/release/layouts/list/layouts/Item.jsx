@@ -1,17 +1,17 @@
 // Libraries
 import { useContext } from "react";
 import { Avatar, Chip, Stack, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 // Core
 import { ListCntxt } from "core/context/ListCntxt.func"; // Context
 import { errorToast, successToast, usePost } from "core/global/function/index.func"; // Function
+import { evaluate } from "core/api/index.func"; // API
 
 // Constants
-import { approve, disapprove, item } from "../index.style"; // Styles
-import { evaluate } from "core/api/index.func"; // API
+import { approve, disapprove, icons, item } from "../index.style"; // Styles
 
 const Item = () => {
     const { list, setList } = useContext(ListCntxt);
@@ -54,6 +54,9 @@ const Item = () => {
                                     data.status === 'failed' ? 
                                         <Chip variant= "default" size= "small" label= "Failed" sx= {{ backgroundColor: '#e84118', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 'bold' }} /> : 
                                     <Chip variant= "default" size= "small" label= "Cancelled" sx= {{ backgroundColor: '#e84118', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 'bold' }} /> : '' }
+                        <Typography sx= { icons } component= { Link } to= { `/evaluate/releasing/form/view/${data.id}` }>
+                            <FontAwesomeIcon icon= { solid('eye') } size= "lg" />
+                        </Typography>
                     </Stack>
                 </Stack>
                 )) : 

@@ -41,3 +41,14 @@ export const disapprove = {
         transition: 'transform .2s' 
     }
 }
+
+export const icons = {
+    color: 'rgb(99, 115, 129)', 
+    padding: '3px', 
+    lineHeight: 0, 
+    transition: 'transform .2s', 
+    '&:hover': { 
+        transform: 'scale(1.1)', 
+        transition: 'transform .2s' 
+    }
+}

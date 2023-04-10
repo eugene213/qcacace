@@ -44,7 +44,7 @@ const link = {
     '&:hover': { backgroundColor: '#1b405d' }
 }
 
-const Index = () => {
+const   Index = () => {
     const { setIsActive } = useContext(GlobalCntxt);
 
     return (

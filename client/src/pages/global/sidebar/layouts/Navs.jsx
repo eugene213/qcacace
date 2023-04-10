@@ -24,8 +24,8 @@ const Navs = () => {
                         onClick= { () => { setOpen({ left: false }); localStorage.setItem('nav', 'pets'); setIsActive('pets'); } } sx= { isActive === 'pets' ? activeLink : link }>Pets</Typography>
                     <Typography variant= "body1" component= { Link } to= "/services/pet-program" color= "text.secondary" 
                         onClick= { () => { setOpen({ left: false }); localStorage.setItem('nav', 'services'); setIsActive('services'); } } sx= { isActive === 'services' ? activeLink : link }>Services</Typography>
-                    {/* <Typography variant= "body1" component= { Link } to= "/faqs" color= "text.secondary" 
-                        onClick= { () => { setOpen({ left: false }); localStorage.setItem('nav', 'faqs'); setIsActive('faqs'); } } sx= { isActive === 'faqs' ? activeLink : link }>FAQs</Typography> */}
+                    <Typography variant= "body1" component= { Link } to= "/faqs" color= "text.secondary" 
+                        onClick= { () => { setOpen({ left: false }); localStorage.setItem('nav', 'faqs'); setIsActive('faqs'); } } sx= { isActive === 'faqs' ? activeLink : link }>FAQs</Typography>
                 </Stack>
             </Stack>
         </Stack>

@@ -11,6 +11,7 @@ import Sidebar from './global/sidebar';
 import Main from './main';
 import Pets from './pets';
 import Services from './services';
+import FAQs from './faqs';
 
 // Custom styles
 const content = {
@@ -34,6 +35,7 @@ const Index = () => {
                     <Route exact path= "/*" element= { <Main /> } />
                     <Route exact path= "/pets/*" element= { <ListPrvdr><Pets /></ListPrvdr> } />
                     <Route exact path= "/services/:srvc/*" element= { <Services /> } />
+                    <Route exact path= "/faqs/*" element= { <FAQs /> } />
                 </Routes>
             </Box>
         </Box>
