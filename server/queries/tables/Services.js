@@ -87,16 +87,19 @@ class Services {
                             .build()).rows;
 
         if(data.type === 'adoption') {
-            _intro = `Good day! We would like to inform that you can now get your adopted pet at QC Animal Care and Adoption Center  
-                            located at Clemente St., Lupang Pangako, Payatas, Quezon City, Philippines. <br><br>
-
-                            To help your pet get released quickly, please bring the following items:<br><br>
-                            
-                            1. Cage or Pet carrier (depends on the size of pet)<br><br>
-                            2. Leash and Collar`;
+            _intro = `Congratulations on adopting your new fur baby! Your warm heart for pets helped them to have a new family that will surely give them love and care. 
+            We are assured that your new pet will give the same amount of love you will give to them.<br><br>
+            For more, you can subscribe to our website by inputting your gmail address at the lower right of https://qcacace.vercel.app/ 
+            and click the subscribe button. By doing this, you can see the latest updates including the new pet, new pet programs, missing 
+            pets and new announcements. Thank you!
+            `;
         }
         else {
-            _intro = `Good day! We would like to inform you. We will call you once we are near the pick up location. Thank you!`;
+            _intro = `Good day! We would like to inform you that your pet has been picked up and arrived safely at our center. 
+            It is sad that they need to be separated from you but rest assured that we will take care of them until they find a new family.
+            For more, you can subscribe to our website by inputting your gmail address at the lower right of https://qcacace.vercel.app/ 
+            and click the subscribe button. By doing this, you can see the latest updates including the new pet, new pet programs, 
+            missing pets and new announcements. Thank you!`;
         }
                                     
         let mail = generator.generate({
@@ -108,7 +111,7 @@ class Services {
         });
 
         transporter.sendMail({ from: global.USER, to: data.email, subject: `Congratulations`, html: mail });
-        return { result: 'success', message: 'Adoption complete!', list: list }
+        return { result: 'success', message: 'Transaction Complete!', list: list }
     }
 
     reject = async (data) => {

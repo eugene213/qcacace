@@ -70,7 +70,7 @@ const Index = () => {
                                 <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
                                     <Typography variant= "h6" sx= {{ fontWeight: 'bold' }} gutterBottom>3. How to Report a Missing Pet?</Typography>
                                     <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" sx= {{ paddingLeft: '20px' }} spacing= { 1 }>
-                                        <Typography>You can report a missing pet through emailing us at qcacac2017@gmail.com with this format.</Typography>
+                                        <Typography>You can report a missing pet through emailing us at <b>qcacac2017@gmail.com</b></Typography>
                                         <Typography>Email subject: Report Missing Pet</Typography>
                                         <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
                                             <Typography>Pet Category:</Typography>

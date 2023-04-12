@@ -61,12 +61,16 @@ class Payment {
 
         if(data.type === 'adoption') {
             _intro = `Good day! We would like to inform you that your payment has been validated by QC Animal Care and Adoption Center's evaluator. 
-                            You can now proceed to the last part of the pet adoption process which is the releasing of pets. Thank you!.`;
+            You can now proceed to the last part of the pet adoption process which is the releasing of pets at QC Animal Care and Adoption Center  
+            located at Clemente St., Lupang Pangako, Payatas, Quezon City, Philippines.<br><br>
+            To help your pet get released quickly, please bring the following items:<br><br>
+            1. Cage or Pet carrier (depends on the size of pet)<br>
+            2. Leash and Collar`;
         }
         else {
-            _intro = `Good day! We would like to inform you that your payment has been validated by 
-            QC Animal Care and Adoption Center's evaluator. You can now proceed to the last part of the pet 
-            surrender process which is the pick up of the pet. Please wait for our email for our pick up schedule. Thank you!`;
+            _intro = `Good day! We would like to inform you that your payment has been validated by QC Animal Care and Adoption Center's evaluator. 
+                        You can now proceed to the last part of the pet surrender process which is the pick up of the pet. Please wait for our email 
+                        or phone call for the pick up schedule. Thank you!`;
         }
 
         let mail = generator.generate({
