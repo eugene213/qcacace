@@ -33,6 +33,9 @@ const PetInfo = () => {
                                     <FontAwesomeIcon icon= { pet[0].gender === 'male' ? solid('mars') : solid('venus') } />
                                 </Typography> : <Skeleton variant= "rounded" sx= {{ width: '20px', height: '20px' }} /> }
                     </Stack>
+                    <Typography variant= "caption"><b>Breed:</b> { pet?.[0]?.breed }</Typography>
+                    <Typography variant= "caption"><b>Color:</b> { pet?.[0]?.color }</Typography>
+                    <Typography variant= "caption"><b>Coat:</b> { pet?.[0]?.coat }</Typography>
                     { pet !== undefined ? 
                         <Grid container direction= "row" justifyContent= "flex-start" alignItems= "flex-start" spacing= { 1 } sx= {{ width: '100%', marginTop: '5px' }}>
                             { (JSON.parse(pet[0].tags)).map((tag, index) => (

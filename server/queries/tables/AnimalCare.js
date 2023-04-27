@@ -41,8 +41,9 @@ class AnimalCare {
         let mail = generator.generate({
             body: {
                 name: 'Fur Mom/Dad',
-                intro: `Good day! We are happy to tell you that we have a new program entitled <b> ${program.title} </b>.  
-                This program will surely make our pet happy, and healthy! To see more details about this program, please visit  `,
+                intro: `Good day! We are happy to tell you that we have a new program entitled <b> ${program.title}
+                            </b>. This program will surely make our pet happy, and healthy! To see more details about this
+                            program, please visit <a href= "https://qcacace.vercel.app">https://qcacace.vecel.app</a>`,
                 
                 outro: 'Please contact me for additional help.'
             }

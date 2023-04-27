@@ -61,7 +61,7 @@ const OtherInfo = ({ fetching }) => {
                     <Box sx= { select }>
                         <Controller control= { control } name= "user_level" defaultValue= "evaluator"
                                 render= { ({ field: { onChange, value } }) => (
-                                    <Autocomplete options= { ul } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type === 'view' }
+                                    <Autocomplete options= { ul } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { true }
                                         noOptionsText= "No results..." isOptionEqualToValue= { (option, value) => option.name === value.name || option.id === value.id }
                                         renderInput= { params => ( <TextField { ...params } variant= "standard" size= "small" fullWidth= { true } /> ) } getOptionDisabled= { option => option.id === 0 }
                                         onChange= { (e, item) => { onChange(item.id); } }

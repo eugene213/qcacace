@@ -1,5 +1,5 @@
 // Libraries
-import { Avatar, Stack } from "@mui/material";
+import { Avatar, Stack, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 
 // Core
@@ -13,8 +13,9 @@ const Photo = ({ fetching }) => {
 
     return (
         <Stack direction= "row" justifyContent= "center" alignItems= "center" sx= {{ marginBottom: '50px' }}>
-            <Stack direction= "column" justifyContent= "flex-start" alignItems= "flex-end">
+            <Stack direction= "column" justifyContent= "flex-start" alignItems= "center" spacing= { 2 }>
                 <Avatar src= { pic } sx= {{ width: '145px', height: '145px', border: 'solid 5px #DFE4EA' }} />
+                <Typography variant= "h6" sx= {{ fontWeight: 'bold' }}>#{ getValues()?.series_no }</Typography>
             </Stack>
         </Stack>
     );

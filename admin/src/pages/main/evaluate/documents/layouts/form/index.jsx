@@ -54,7 +54,7 @@ const email_input = {
 const Index = () => {
     const { type, id, email } = useParams();
     const navigate = useNavigate();
-    const { setValue } = useContext(FormCntxt);
+    const { setValue, getValues } = useContext(FormCntxt);
     
     const { data: docs, isFetching: fetching } = 
         useGet({ key: ['docs_specific'], fetch: specific({ table: 'tbl_documents', id: id ?? null }), options: { enabled: type !== 'new', refetchOnWindowFocus: false },
@@ -108,8 +108,8 @@ const Index = () => {
                                 <Typography sx= {{ fontWeight: '600', textTransform: 'uppercase', color:'black', fontSize:'18px' }}gutterBottom>Documentary requirements</Typography>
                                 <Grid container direction= "row" justifyContent= "flex-start" alignItems= "flex-end" spacing= { 2 }>
                                     <Grid item xs= { 12 } md= { 6 } lg= { 4 }><ValidId fetching= { fetching } /></Grid>
-                                    <Grid item xs= { 12 } md= { 6 } lg= { 4 }><Picture fetching= { fetching } /></Grid>
-                                    <Grid item xs= { 12 } md= { 6 } lg= { 4 }><PetCage fetching= { fetching } /></Grid>
+                                    { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><Picture fetching= { fetching } /></Grid> : '' }
+                                    { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><PetCage fetching= { fetching } /></Grid> : '' }
                                 </Grid>
                             </Stack>
                         </Grid>

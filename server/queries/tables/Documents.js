@@ -9,7 +9,7 @@ const Builder = require('../../functions/builder');
 class Documents {
     specific = async (id) => { 
         return (await new Builder(`tbl_services AS srvc`)
-                                        .select(`srvc.id, pet.photo, pet.category_id, pet.breed_id, pet.coat_id, pet.life_stages_id, pet.gender, pet.sterilization, pet.energy_level, pet.weight,
+                                        .select(`srvc.id, pet.photo, pet.series_no, pet.category_id, pet.breed_id, pet.coat_id, pet.life_stages_id, pet.gender, pet.sterilization, pet.energy_level, pet.weight,
                                                         pet.color, pet.tags, fp.email, fp.fname, fp.mname, fp.lname, fp.contact_no, fp.gender, fp.address, docu.valid_id, docu.picture, 
                                                         docu.pet_cage, srvc.reason, srvc.type`)
                                         .join({ table: `tbl_pets AS pet`, condition: `srvc.pet_id = pet.id`, type: `LEFT` })
@@ -82,11 +82,18 @@ class Documents {
                                             .build()).rows;
         
         if(data.type === 'adoption') {
-            _intro = `Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and Adoption Center.<br><br>
+            _intro = `Hi Fur Mom/Dad,
 
-                            We have reviewed your application and submitted documents, and we want to inform you that you are pre-qualified for 
-                            the next phase of the adoption process. You may proceed for the on site interview located at Clemente St., Lupang Pangako, 
-                            Payatas, Quezon City, Philippines. <br> Please reply to this email if you have any questions or need to reschedule. We look forward to seeing you.`;
+                                Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and Adoption Center.
+                                
+                                We have reviewed your application and submitted documents, and we want to inform you that you are pre-qualified for the next phase of the adoption process. 
+                                Please wait for the interview via google meet or phone call or you may also proceed for the onsite interview located at Clemente St., Lupang Pangako, Payatas, Quezon City, 
+                                Philippines if you wish to visit the pet.
+                                
+                                Please reply to this email if you have any questions or need to reschedule. We look forward to seeing you.
+                                
+                                Yours truly,
+                                QC Animal Care & Adoption Center`;
         }
         else {
             _intro = `Good day! We have received  your application and submitted documents for the surrendering of your pet. 

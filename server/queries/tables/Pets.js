@@ -28,22 +28,22 @@ class Pets {
 
     search = async (data) => {
         return (await new Builder(`tbl_pets AS pet`)
-                                        .select(`pet.id, pet.series_no, ctg.name AS category, brd.name AS breed, coat.name AS coat, ls.name AS stage, pet.weight, pts.is_adopt,
-                                                        pet.gender, pet.tags, pet.photo, pet.status, pet.date_created`)
+                                        .select(`pet.id, pet.series_no, ctg.name AS category, brd.name AS breed, coat.name AS coat, ls.name AS stage, pet.weight, pet.is_adopt,
+                                                        pet.color, pet.gender, pet.tags, pet.photo, pet.status, pet.date_created`)
                                         .join({ table: `tbl_coat AS coat`, condition: `pet.coat_id = coat.id`, type: `LEFT` })
                                         .join({ table: `tbl_life_stages AS ls`, condition: `pet.life_stages_id = ls.id`, type: `LEFT` })
                                         .join({ table: `tbl_category AS ctg`, condition: `pet.category_id = ctg.id`, type: 'LEFT' })
                                         .join({ table: `tbl_breed AS brd`, condition: `pet.breed_id = brd.id`, type: 'LEFT' })
-                                        .condition(`WHERE (pet.series_no LIKE '%${data.condition}%' OR ctg.name LIKE '%${data.condition}%' OR brd.name LIKE '%${data.condition}%')
-                                                            ${data.is_adopt !== undefined ? `AND pet.is_adopt= ${data.is_adopt}` : ''}`)
-                                        .except(`WHERE pts.status = 0 ORDER BY 13 DESC`)
+                                        .condition(`WHERE (pet.series_no LIKE '%${data.condition}%' OR ctg.name LIKE '%${data.condition}%' OR brd.name LIKE '%${data.condition}%'
+                                                            OR pet.tags LIKE '%${data.condition}%') ${data.is_adopt !== undefined ? `AND pet.is_adopt= ${data.is_adopt}` : ''}`)
+                                        .except(`WHERE pet.status = 0 ORDER BY 13 DESC`)
                                         .build()).rows;
     }
 
     recommend = async (data) => {
         return (await new Builder(`tbl_pets AS pts`)
                                         .select(`pts.id, pts.series_no, ctg.name AS category, brd.name AS breed, coat.name AS coat, ls.name AS stage, pts.weight, pts.is_adopt,
-                                                        pts.gender, pts.tags, pts.photo, pts.status, pts.date_created`)
+                                                        pts.color, pts.gender, pts.tags, pts.photo, pts.status, pts.date_created`)
                                         .join({ table: `tbl_coat AS coat`, condition: `pts.coat_id = coat.id`, type: `LEFT` })
                                         .join({ table: `tbl_life_stages AS ls`, condition: `pts.life_stages_id = ls.id`, type: `LEFT` })
                                         .join({ table: `tbl_category AS ctg`, condition: `pts.category_id = ctg.id`, type: 'LEFT' })
@@ -59,7 +59,7 @@ class Pets {
     list = async (data) => {
         return (await new Builder(`tbl_pets AS pts`)
                                         .select(`pts.id, pts.series_no, ctg.name AS category, brd.name AS breed, coat.name AS coat, ls.name AS stage, pts.weight, pts.is_adopt,
-                                                        pts.gender, pts.tags, pts.photo, pts.status, pts.date_created`)
+                                                        pts.color, pts.gender, pts.tags, pts.photo, pts.status, pts.date_created`)
                                         .join({ table: `tbl_coat AS coat`, condition: `pts.coat_id = coat.id`, type: `LEFT` })
                                         .join({ table: `tbl_life_stages AS ls`, condition: `pts.life_stages_id = ls.id`, type: `LEFT` })
                                         .join({ table: `tbl_category AS ctg`, condition: `pts.category_id = ctg.id`, type: 'LEFT' })
@@ -70,8 +70,8 @@ class Pets {
 
     top = async (data) => { 
         return (await new Builder(`tbl_pets AS pts`)
-                                        .select(`pts.id, pts.series_no, ctg.name AS category, brd.name AS breed, coat.name AS coat, ls.name AS stage, pts.weight, 
-                                                        pts.gender, pts.tags, pts.photo, pts.status, pts.date_created`)
+                                        .select(`pts.id, pts.series_no, ctg.name AS category, brd.name AS breed, coat.name AS coat, ls.name AS stage, pts.weight, pts.is_adopt,
+                                                        pts.color, pts.gender, pts.tags, pts.photo, pts.status, pts.date_created`)
                                         .join({ table: `tbl_coat AS coat`, condition: `pts.coat_id = coat.id`, type: `LEFT` })
                                         .join({ table: `tbl_life_stages AS ls`, condition: `pts.life_stages_id = ls.id`, type: `LEFT` })
                                         .join({ table: `tbl_category AS ctg`, condition: `pts.category_id = ctg.id`, type: 'LEFT' })
@@ -99,7 +99,7 @@ class Pets {
             body: {
                 name: 'Fur Mom/Dad',
                 intro: `Hello, Good news! We have a new friend that is in need of your love and care. Let's welcome Pet ID:<b> ${pet.series_no} </b>. 
-                <br><br>To see more about our new pet, please visit  https://qcacace.vercel.app/. Thank you!
+                <br><br>To see more about our new pet, please visit https://qcacace.vercel.app/. Thank you!
                 `,
                 
                 outro: 'Please contact me for additional help.'

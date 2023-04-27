@@ -32,7 +32,9 @@ const Items = () => {
                                                 <FontAwesomeIcon icon= { data.gender === 'male' ? solid('mars') : solid('venus') } />
                                             </Typography>
                                         </Stack>
-                                        <Typography variant= "caption">{ data.coat }</Typography>
+                                        <Typography variant= "caption"><b>Breed:</b> { data.breed }</Typography>
+                                        <Typography variant= "caption"><b>Color:</b> { data.color }</Typography>
+                                        <Typography variant= "caption"><b>Coat:</b> { data.coat }</Typography>
                                         <Typography>{ (JSON.parse(data.tags)).map((tag, index) => ( <span key= { index } style= { pettag }>#{(tag.name).toLowerCase()}</span> )) }</Typography>
                                     </Stack>
                                     <Stack direction= "row" justifyContent= 'flex-end' alignItems= "center" sx= {{ width: '100%' }}>

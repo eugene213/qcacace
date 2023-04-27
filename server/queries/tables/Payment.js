@@ -61,16 +61,28 @@ class Payment {
 
         if(data.type === 'adoption') {
             _intro = `Good day! We would like to inform you that your payment has been validated by QC Animal Care and Adoption Center's evaluator. 
-            You can now proceed to the last part of the pet adoption process which is the releasing of pets at QC Animal Care and Adoption Center  
-            located at Clemente St., Lupang Pangako, Payatas, Quezon City, Philippines.<br><br>
-            To help your pet get released quickly, please bring the following items:<br><br>
-            1. Cage or Pet carrier (depends on the size of pet)<br>
-            2. Leash and Collar`;
+                            You can now proceed to the last part of the pet adoption process which is the releasing of pets at QC
+                            Animal Care and Adoption Center
+                            located at Clemente St., Lupang Pangako, Payatas, Quezon City, Philippines.<br><br>
+                            To help your pet get released quickly, please bring the following items:<br><br>
+                            1. Cage or Pet carrier (depends on the size of pet)<br>
+                            2. Leash and Collar`;
         }
         else {
-            _intro = `Good day! We would like to inform you that your payment has been validated by QC Animal Care and Adoption Center's evaluator. 
-                        You can now proceed to the last part of the pet surrender process which is the pick up of the pet. Please wait for our email 
-                        or phone call for the pick up schedule. Thank you!`;
+            _intro = `Hi Fur Mom/Dad,
+
+
+            Good day! We would like to inform you that your payment has been sent. Please wait within 48 hours for the validation email of your payment. If you don't receive an email within the specified time limit, you can go directly to our center located at Clemente St., Lupang Pangako, Payatas, Quezon City, Philippines and bring the transaction number of your payment for the validation.
+            
+            
+            Please contact us for additional help.
+            
+            
+            Yours truly,
+            
+            QC Animal Care and Adoption Center
+            
+            `;
         }
 
         let mail = generator.generate({

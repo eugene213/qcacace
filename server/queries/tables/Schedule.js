@@ -86,16 +86,29 @@ class Schedule {
                             .condition(`WHERE srvc.schedule_id IS NOT NULL ORDER BY 15 DESC`)
                             .build()).rows;
 
-        if(data.type === 'adoption') {
-            _intro = `Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and Adoption Center.<br><br>
-                        We have reviewed your application and submitted documents, and we want to inform you that you are pre-qualified for the next phase of the adoption process. 
-                        Please wait for the interview via google meet or phone call or you may also proceed for the onsite interview located at Clemente 
-                        St., Lupang Pangako, Payatas, Quezon City, Philippines if you wish to visit the pet. <br> <br>
-                        Please reply to this email if you have any questions or need to reschedule. We look forward to seeing you.`;
+        if(data.type === 'adoption') {  
+            _intro = `Hi Fur Mom/Dad,
+
+                                Thank you for taking the time to be interviewed as part of the pet surrender process.
+                                We are pleased to inform you that you passed the interview. You can now proceed for the next phase by clicking the button below for the payment details.
+                                
+                                Please contact us for additional help.
+                                
+                                Yours truly,
+                                
+                                QC Animal Care and Adoption Center`;
         }
         else {
-            _intro = `Thank you for taking the time to be interviewed as part of the pet surrender process. 
-            We are pleased to inform you that you <b>PASSED</b> the interview. You can now proceed for the next phase by clicking the button below for the payment details.`;
+            _intro = `Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and
+                                Adoption Center.<br><br>
+                                We have reviewed your application and submitted documents, and we want to inform
+                                you that you are pre-qualified for the next phase of the adoption process.
+                                Please wait for the interview via google meet or phone call or you may also proceed for
+                                the onsite interview located at Clemente
+                                St., Lupang Pangako, Payatas, Quezon City, Philippines if you wish to visit the pet. <br>
+                                <br>
+                                Please reply to this email if you have any questions or need to reschedule. We look
+                                forward to seeing you.`;
         }
 
         let mail = generator.generate({

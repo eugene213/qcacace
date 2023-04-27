@@ -1,15 +1,13 @@
 // Libraries
 import { Stack } from "@mui/material";
-import { successToast } from "core/global/function/index.func";
-import { QrReader } from 'react-qr-reader';
+import QrReader from 'react-qr-reader';
 
-const Scanner = ({ setPet }) => {
+const Scanner = ({ setPet, setIsscan }) => {
 
     return (
         <Stack direction= "row" justifyContent= "center" alignItems= "center" sx= {{ width: '100%', height: '100vh' }}>
-            <QrReader scanDelay= { 3000 } containerStyle= {{ width: '100%', height: '100%' }} videoStyle= {{ width: '100%', height: '100%' }}
-                videoContainerStyle= {{ width: '100%', height: '100%' }} constraints= {{ facingMode: 'user' }}
-                onResult= { async (result) => { if(!!result) { setPet(result?.text); successToast('Successfully scanned!', 3000); } } } />
+            <QrReader delay={ 3000 } onError= { err => console.log(err) } style= {{ width: '100%', height: '100%' }} facingMode= "user"
+                onScan={ data => { if(data !== null) { setPet(data); setIsscan(false); } } } />
         </Stack>
     );
 }

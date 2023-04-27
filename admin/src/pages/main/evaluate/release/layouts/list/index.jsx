@@ -31,7 +31,11 @@ const Index = () => {
     return (
         <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" sx= {{ width: '100%', height: '100%' }} spacing= { 3 }>
             <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
-                <Typography variant= "h6" sx= {{ fontFamily: 'Boldstrom', color: '#3C4048' }}>Releasing</Typography>
+                <Stack direction= "row" justifyContent= "flex-start" alignItems= "center" spacing= { 1 }>
+                    <Typography variant= "h6" sx= {{ fontFamily: 'Boldstrom', color: '#3c4048' }}>Releasing</Typography>
+                    <FontAwesomeIcon icon= { solid('circle') } style= {{ fontSize: '10px' }} />
+                    <Typography variant= "h6" sx= {{ fontFamily: 'Boldstrom', color: '#3c4048' }}>Pick up</Typography>
+                </Stack>
                 <Dashboard />
                 <Stack direction= "row" justifyContent= "space-between" alignItems= "center">
                     <form autoComplete= "off">

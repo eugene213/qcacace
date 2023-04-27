@@ -87,19 +87,28 @@ class Services {
                             .build()).rows;
 
         if(data.type === 'adoption') {
-            _intro = `Congratulations on adopting your new fur baby! Your warm heart for pets helped them to have a new family that will surely give them love and care. 
-            We are assured that your new pet will give the same amount of love you will give to them.<br><br>
-            For more, you can subscribe to our website by inputting your gmail address at the lower right of https://qcacace.vercel.app/ 
-            and click the subscribe button. By doing this, you can see the latest updates including the new pet, new pet programs, missing 
-            pets and new announcements. Thank you!
-            `;
+            _intro = `Congratulations on adopting your new fur baby! Your warm heart for pets helped them to
+                                have a new family that will surely give them love and care.
+                                We are assured that your new pet will give the same amount of love you will give to
+                                them.<br><br>
+                                For more, you can subscribe to our website by inputting your gmail address at the lower right of
+                                https://qcacace.vercel.app/
+                                and click the subscribe button. By doing this, you can see the latest updates including the new
+                                pet, new pet programs, missing
+                                pets and new announcements. Thank you!
+                                `;
         }
         else {
-            _intro = `Good day! We would like to inform you that your pet has been picked up and arrived safely at our center. 
-            It is sad that they need to be separated from you but rest assured that we will take care of them until they find a new family.
-            For more, you can subscribe to our website by inputting your gmail address at the lower right of https://qcacace.vercel.app/ 
-            and click the subscribe button. By doing this, you can see the latest updates including the new pet, new pet programs, 
-            missing pets and new announcements. Thank you!`;
+            _intro = `Good day! We would like to inform you that your pet has been picked up and arrived safely
+                                at our center.
+                                It is sad that they need to be separated from you but rest assured that we will take care of
+                                them until they find a new family.
+                                For more, you can subscribe to our website by inputting your gmail address at the lower right of
+                                https://qcacace.vercel.app/
+                                and click the subscribe button. By doing this, you can see the latest updates including the new
+                                pet, new pet programs,
+                                missing pets and new announcements. Thank you!`;
+
         }
                                     
         let mail = generator.generate({

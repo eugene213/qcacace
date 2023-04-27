@@ -66,17 +66,15 @@ const PetInformation = () => {
                     <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
                         <Typography variant= "body1" sx= {{ fontWeight: 'bold', marginBottom: '15px', color: '#142F48', fontSize:'20px' }}>Pet Information</Typography>
                         <Stack direction= "row" justifyContent= "flex-end" alignItems= "center">
-                            <Typography sx= { scanner } onClick= { () => setIsscan(!isscan) }>
-                                <FontAwesomeIcon icon= { solid('qrcode') } />
-                            </Typography>
+                            <Typography sx= { scanner } onClick= { () => setIsscan(!isscan) }><FontAwesomeIcon icon= { solid('qrcode') } /></Typography>
                         </Stack>
-                        { isscan ? <Scanner setPet= { setPet } /> : <Info pet= { pet } pet_fetching= { pet_fetching } srvc_fetching= { srvc_fetching } /> }
+                        { isscan ? <Scanner setPet= { setPet } setIsscan= { setIsscan } /> : <Info pet= { pet } pet_fetching= { pet_fetching } srvc_fetching= { srvc_fetching } /> }
                     </Stack>
                 </form>
             </Box>
-            <Grid container direction= "row" justifyContent= "space-between" alignItems= "center" sx= {{ paddingTop: '20px' }}>
+            <Grid container direction= "row" justifyContent= { pet !== null ? 'space-between' : 'flex-start' } alignItems= "center" sx= {{ paddingTop: '20px' }}>
                 <Grid item xs= { 5 } sm= { 3 }><Box sx= { btntxt } component= { Link } to= { `/tools/adopt/personal-information/${id}` }>Back</Box></Grid>
-                <Grid item xs= { 5 } sm= { 3 }>
+                {pet !== null ? <Grid item xs= { 5 } sm= { 3 }>
                     <Box sx= { btntxt } onClick= { handleSubmit(data => { 
                         data['application_type'] = 'walk-in';
                         data['pet_id'] = pet;
@@ -84,7 +82,7 @@ const PetInformation = () => {
 
                         updating({ table: 'tbl_services', data: data });
                     }) }>Next</Box>
-                </Grid>
+                </Grid> : '' }
             </Grid>
         </Stack>
     );
