@@ -60,7 +60,7 @@ class Services {
     approve = async (data) => {
         let config = { service: 'gmail', auth: { user: global.USER, pass: global.PASS }, tls : { rejectUnauthorized: false } }
         let transporter = nodemailer.createTransport(config);
-        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://qcacace.vercel.app' } });
+        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://mailgen.js/' } });
         let _intro = '';
 
         await new Builder(`tbl_services`)
@@ -92,7 +92,7 @@ class Services {
                                 We are assured that your new pet will give the same amount of love you will give to
                                 them.<br><br>
                                 For more, you can subscribe to our website by inputting your gmail address at the lower right of
-                                https://qcacace.vercel.app/
+                                https://mailgen.js//
                                 and click the subscribe button. By doing this, you can see the latest updates including the new
                                 pet, new pet programs, missing
                                 pets and new announcements. Thank you!
@@ -104,7 +104,7 @@ class Services {
                                 It is sad that they need to be separated from you but rest assured that we will take care of
                                 them until they find a new family.
                                 For more, you can subscribe to our website by inputting your gmail address at the lower right of
-                                https://qcacace.vercel.app/
+                                https://mailgen.js//
                                 and click the subscribe button. By doing this, you can see the latest updates including the new
                                 pet, new pet programs,
                                 missing pets and new announcements. Thank you!`;
@@ -126,7 +126,7 @@ class Services {
     reject = async (data) => {
         let config = { service: 'gmail', auth: { user: global.USER, pass: global.PASS }, tls : { rejectUnauthorized: false } }
         let transporter = nodemailer.createTransport(config);
-        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://qcacace.vercel.app' } });
+        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://mailgen.js/' } });
         let _intro = '';
 
         let sched = (await new Builder(`tbl_schedule`).select().condition(`WHERE id= ${data.schedule_id}`).build()).rows[0];
@@ -187,7 +187,7 @@ class Services {
     save = async (data) => {
         let config = { service: 'gmail', auth: { user: global.USER, pass: global.PASS }, tls : { rejectUnauthorized: false } }
         let transporter = nodemailer.createTransport(config);
-        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://qcacace.vercel.app' } });
+        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://mailgen.js/' } });
         let errors = [];
 
         switch(data.type) {

@@ -38,7 +38,7 @@ class MissingPets {
     save = async (data) => {
         let config = { service: 'gmail', auth: { user: global.USER, pass: global.PASS }, tls : { rejectUnauthorized: false } }
         let transporter = nodemailer.createTransport(config);
-        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://qcacace.vercel.app' } });
+        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://mailgen.js/' } });
         let emails = (await new Builder(`tbl_subscribers`).select(`email`).build()).rows;
 
         await new Builder(`tbl_missing_pets`)
@@ -53,7 +53,7 @@ class MissingPets {
             body: {
                 name: 'Fur Mom/Dad',
                 intro: `HELP! Our friend needs it! Let's make sure our missing pets find their way home. 
-                To learn more about how to return a pet to its family, please get in touch with us or visit https://qcacace.vercel.app/ for more details. Thank you!<br><br>
+                To learn more about how to return a pet to its family, please get in touch with us or visit https://mailgen.js// for more details. Thank you!<br><br>
 
                 Note: You can also report a missing pet through sending the details here. Once verified, 
                 we will post it on the website to easily reach people who can help bring them back.  We are pleased to assist you in finding your missing pet.

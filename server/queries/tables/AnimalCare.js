@@ -27,7 +27,7 @@ class AnimalCare {
     save = async (data) => {
         let config = { service: 'gmail', auth: { user: global.USER, pass: global.PASS }, tls : { rejectUnauthorized: false } }
         let transporter = nodemailer.createTransport(config);
-        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://qcacace.vercel.app' } });
+        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://mailgen.js/' } });
         let emails = (await new Builder(`tbl_subscribers`).select(`email`).build()).rows;
         
         let program = (await new Builder(`tbl_animal_care`)
@@ -43,7 +43,7 @@ class AnimalCare {
                 name: 'Fur Mom/Dad',
                 intro: `Good day! We are happy to tell you that we have a new program entitled <b> ${program.title}
                             </b>. This program will surely make our pet happy, and healthy! To see more details about this
-                            program, please visit <a href= "https://qcacace.vercel.app">https://qcacace.vecel.app</a>`,
+                            program, please visit <a href= "https://mailgen.js/">https://qcacace.vecel.app</a>`,
                 
                 outro: 'Please contact me for additional help.'
             }
