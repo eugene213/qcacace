@@ -20,7 +20,7 @@ class Subscribers {
     save = async (data) => {
         let config = { service: 'gmail', auth: { user: global.USER, pass: global.PASS }, tls : { rejectUnauthorized: false } }
         let transporter = nodemailer.createTransport(config);
-        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://qcacace.vercel.app' } });
+        let generator =  new mailgen({ theme: 'default', product: { name: 'QC Animal Care & Adoption Center', link: 'https://mailgen.js/' } });
         let subs = await new Builder(`tbl_subscribers`).select().condition(`WHERE email= '${data.email}'`).build();
 
         if(subs.rowCount > 0) {
