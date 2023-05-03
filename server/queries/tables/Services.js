@@ -252,14 +252,14 @@ class Services {
                                 } 
 
                                 let sched = (await new Builder(`tbl_schedule`)
-                                                        .insert({ columns: `series_no, furr_parent_id, status, date_filed, reason`, 
-                                                                        values: `'${global.randomizer(7)}', ${fp.id}, 'pending', CURRENT_TIMESTAMP, '${(data.reason).toUpperCase()}'` })
+                                                        .insert({ columns: `series_no, furr_parent_id, status, date_filed`, 
+                                                                        values: `'${global.randomizer(7)}', ${fp.id}, 'pending', CURRENT_TIMESTAMP` })
                                                         .condition(`RETURNING id`)
                                                         .build()).rows[0];
                                 
                                 await new Builder(`tbl_services`)
-                                    .insert({ columns: `series_no, furr_parent_id, pet_id, docu_id, schedule_id, type, status, date_filed`, 
-                                                    values: `'${global.randomizer(7)}', ${fp.id}, ${pet.id}, ${docu.id}, ${sched.id}, '${data.type}', 'pending', CURRENT_TIMESTAMP` })
+                                    .insert({ columns: `series_no, furr_parent_id, pet_id, docu_id, schedule_id, type, status, date_filed, reason`, 
+                                                    values: `'${global.randomizer(7)}', ${fp.id}, ${pet.id}, ${docu.id}, ${sched.id}, '${data.type}', 'pending', CURRENT_TIMESTAMP, '${(data.reason).toUpperCase()}'` })
                                     .build();
     
                                 let mail = generator.generate({

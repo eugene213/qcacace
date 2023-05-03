@@ -4,7 +4,7 @@ const Builder = require('../../functions/builder');
 
 class Breed {
     specific = async (id) => { return (await new Builder(`tbl_breed`).select().condition(`WHERE id= ${id}`).build()).rows; }
-    dropdown = async (data) => { return (await new Builder(`tbl_breed`).select(`id, name`).condition(`WHERE category_id = ${data.id}`).build()).rows; }
+    dropdown = async (data) => { return (await new Builder(`tbl_breed`).select(`id, name`).condition(`WHERE status = 1 AND category_id = ${data.id}`).build()).rows; }
 
     list = async () => { 
         return (await new Builder(`tbl_breed AS brd`)

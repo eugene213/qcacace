@@ -24,7 +24,7 @@ const AppointmentDate = () => {
                     <Box sx= { select }>
                         <Controller control= { control } name= "month" defaultValue= { new Date().getMonth() + 1 }
                             render= { ({ field: { onChange, value } }) => (
-                                <Autocomplete options= { months() } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type === 'view' }
+                                <Autocomplete options= { months() } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type !== 'new' }
                                     noOptionsText= "No results.." isOptionEqualToValue= { (option, value) => option.name === value.name || option.id === value.id }
                                     renderInput= { params => ( <TextField { ...params } variant= "standard" size= "small" fullWidth= { true } /> ) }
                                     onChange= { (e, item) => {
@@ -41,7 +41,7 @@ const AppointmentDate = () => {
                     <Box sx= { select }>
                         <Controller control= { control } name= "day" defaultValue= { new Date().getDate() }
                             render= { ({ field: { onChange, value } }) => (
-                                <Autocomplete options= { day } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type === 'view' }
+                                <Autocomplete options= { day } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type !== 'new' }
                                     noOptionsText= "No results.." isOptionEqualToValue= { (option, value) => option.name === value.name || option.id === value.id }
                                     renderInput= { params => ( <TextField { ...params } variant= "standard" size= "small" fullWidth= { true } /> ) }
                                     onChange= { (e, item) => { onChange(item.id); } }
@@ -56,7 +56,7 @@ const AppointmentDate = () => {
                     <Box sx= { select }>
                         <Controller control= { control } name= "year" defaultValue= { new Date().getFullYear() }
                             render= { ({ field: { onChange, value } }) => (
-                                <Autocomplete options= { years() } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type === 'view' }
+                                <Autocomplete options= { years() } disableClearable getOptionLabel= { opt => opt.name || opt.id } disabled= { type !== 'new' }
                                     noOptionsText= "No results.." isOptionEqualToValue= { (option, value) => option.name === value.name || option.id === value.id }
                                     renderInput= { params => ( <TextField { ...params } variant= "standard" size= "small" fullWidth= { true } /> ) }
                                     onChange= { (e, item) => {
