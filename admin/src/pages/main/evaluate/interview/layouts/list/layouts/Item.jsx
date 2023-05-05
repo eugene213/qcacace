@@ -48,6 +48,7 @@ const Item = () => {
                                 sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Type: <b>{ (data.type).toUpperCase() }</b></Typography>
                             <Typography variant= "body2" 
                                 sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{ data.contact_no }</Typography>
+                            <Typography variant= "body2" sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Date evaluated: { data.date_evaluated }</Typography>
                         </Stack>
                     </Stack>
                     <Stack direction= "row" justifyContent= "flex-start" alignItems= "center" spacing= { 1 }>

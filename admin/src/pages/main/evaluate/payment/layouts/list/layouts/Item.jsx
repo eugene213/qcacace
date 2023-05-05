@@ -39,7 +39,7 @@ const Item = () => {
                             <Typography variant= "body2" 
                                 sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Date paid: { data.type === 'surrender' ? data.payment_date : '-'}</Typography>
                             <Typography variant= "body2" sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Type: <b>{ (data.type).toUpperCase() }</b></Typography>
-                            <Typography variant= "body2" sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{ data.date_created }</Typography>
+                            <Typography variant= "body2" sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Date evaluated: { data.date_evaluated }</Typography>
                         </Stack>
                     </Stack>
                     <Stack direction= "row" justifyContent= "flex-start" alignItems= "center" spacing= { 1 }>
