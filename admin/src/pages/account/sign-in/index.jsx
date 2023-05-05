@@ -2,14 +2,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Container, Stack, TextField, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 // Core
 import { usePost } from "core/global/function/index.func"; // Function
 import { authentication } from "core/api/index.func"; // APIs
 
 // Constants
-import { brand, btn, input, link, title } from "./index.style"; // Styles
+import { brand, btn, input, title } from "./index.style"; // Styles
 import { Validation } from "./index.validation"; // Validation
 
 const Index = () => {
