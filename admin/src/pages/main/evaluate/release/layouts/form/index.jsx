@@ -23,6 +23,7 @@ import PetCage from "./documents/PetCage";
 
 // Constants
 import { btnicon, card } from "./index.style"; // Styles
+import ProofBilling from "./documents/ProofBilling";
 const input = {
     MuiInput: {
         styleOverrides: {
@@ -103,6 +104,7 @@ const Index = () => {
                                     <Grid item xs= { 12 } md= { 6 } lg= { 4 }><ValidId fetching= { fetching } /></Grid>
                                     { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><Picture fetching= { fetching } /></Grid> : '' }
                                     { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><PetCage fetching= { fetching } /></Grid> : '' }
+                                    { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><ProofBilling fetching= { fetching } /></Grid> : '' }
                                 </Grid>
                             </Stack>
                         </Grid>

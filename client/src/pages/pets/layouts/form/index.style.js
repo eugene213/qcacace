@@ -58,6 +58,17 @@ export const petmale = {
     textOverflow: 'ellipsis'
 }
 
+export const datenormal = {
+    padding: '10px 0',
+    cursor: 'pointer',
+    '&:hover': { backgroundColor: '#ebebeb' },
+    transition: 'all 0.2s ease-in-out',
+    width: '100%',
+    textAlign: 'center',
+    borderRadius: '8px',
+    fontWeight: 'bold'
+}
+
 export const petfemale = {
     width: '10%',
     color: '#e76165',
@@ -175,14 +186,13 @@ export const btntxt = {
 }
 
 export const date = {
-    padding: '10px 0',
-    cursor: 'pointer',
-    '&:hover': { backgroundColor: '#ebebeb' },
-    transition: 'all 0.2s ease-in-out',
-    width: '100%',
-    textAlign: 'center',
-    borderRadius: '8px',
-    fontWeight: 'bold'
+    backgroundColor: '#FFFFFF',
+    border: 'solid 1px #dfe4ea',
+    padding: {
+        xs: '12px 8px 9px 8px',
+        md: '9px 10px 6px 10px'
+    },
+    borderRadius: '5px'
 }
 
 export const datedisabled = {

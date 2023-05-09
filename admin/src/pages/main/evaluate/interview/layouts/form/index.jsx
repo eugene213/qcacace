@@ -20,6 +20,7 @@ import OwnerInformation from "./owner-information/OwnerInformation";
 import ValidId from "./documents/ValidId";
 import Picture from "./documents/Picture";
 import PetCage from "./documents/PetCage";
+import ProofBilling from "./documents/ProofBilling";
 
 // Constants
 import { btnicon, card } from "./index.style"; // Styles
@@ -103,6 +104,7 @@ const Index = () => {
                                     <Grid item xs= { 12 } md= { 6 } lg= { 4 }><ValidId fetching= { fetching } /></Grid>
                                     { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><Picture fetching= { fetching } /></Grid> : '' }
                                     { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><PetCage fetching= { fetching } /></Grid> : '' }
+                                    { getValues()?.type === 'adoption' ? <Grid item xs= { 12 } md= { 6 } lg= { 4 }><ProofBilling fetching= { fetching } /></Grid> : '' }
                                 </Grid>
                             </Stack>
                         </Grid>

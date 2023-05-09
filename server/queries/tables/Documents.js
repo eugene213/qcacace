@@ -11,7 +11,7 @@ class Documents {
         return (await new Builder(`tbl_services AS srvc`)
                                         .select(`srvc.id, pet.photo, pet.series_no, pet.category_id, pet.breed_id, pet.coat_id, pet.life_stages_id, pet.gender, pet.sterilization, pet.energy_level, pet.weight,
                                                         pet.color, pet.tags, fp.email, fp.fname, fp.mname, fp.lname, fp.contact_no, fp.gender, fp.address, docu.valid_id, docu.picture, 
-                                                        docu.pet_cage, srvc.reason, srvc.type`)
+                                                        docu.pet_cage, docu.proof_billing, srvc.reason, srvc.type`)
                                         .join({ table: `tbl_pets AS pet`, condition: `srvc.pet_id = pet.id`, type: `LEFT` })
                                         .join({ table: `tbl_furr_parent AS fp`, condition: `srvc.furr_parent_id = fp.id`, type: `LEFT` })
                                         .join({ table: `tbl_documents AS docu`, condition: `srvc.docu_id = docu.id`, type: `LEFT` })
@@ -181,7 +181,7 @@ class Documents {
                 if(adopt.docu_id !== null) {
                     await new Builder(`tbl_documents`)
                                         .update(`valid_id= '${data.valid_id}', picture= '${data.picture}', pet_cage= '${data.pet_cage}', 
-                                                            evaluated_by= ${data.evaluated_by}, status= 'approved', date_evaluated= CURRENT_TIMESTAMP`)
+                                                            evaluated_by= ${data.evaluated_by}, status= 'approved', date_evaluated= CURRENT_TIMESTAMP, proof_billing= '${data.proof_billing}'`)
                                         .condition(`WHERE id= ${adopt.docu_id}`)
                                         .build();
                 }
@@ -191,15 +191,15 @@ class Documents {
                         docu = (await new Builder(`tbl_documents`).select().condition(`WHERE furr_parent_id= ${adopt.furr_parent_id}`).build()).rows[0];
                         await new Builder(`tbl_documents`)
                                             .update(`valid_id= '${data.valid_id}', picture= '${data.picture}', pet_cage= '${data.pet_cage}', 
-                                                                evaluated_by= ${data.evaluated_by}, status= 'approved', date_evaluated= CURRENT_TIMESTAMP`)
+                                                                evaluated_by= ${data.evaluated_by}, status= 'approved', date_evaluated= CURRENT_TIMESTAMP, proof_billing= '${data.proof_billing}'`)
                                             .condition(`WHERE id= ${docu.id}`)
                                             .build();
                     }
                     else {
                         docu = (await new Builder(`tbl_documents`)
-                                                            .insert({ columns: `series_no, furr_parent_id, valid_id, picture, pet_cage, evaluated_by, status, date_filed, date_evaluated`, 
+                                                            .insert({ columns: `series_no, furr_parent_id, valid_id, picture, pet_cage, evaluated_by, status, date_filed, date_evaluated, proof_billing`, 
                                                                             values: `'${global.randomizer(7)}', ${adopt.furr_parent_id}, '${data.valid_id}', '${data.picture}', '${data.pet_cage}', 
-                                                                                            ${data.evaluated_by}, 'approved', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP` })
+                                                                                            ${data.evaluated_by}, 'approved', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '${data.proof_billing}'` })
                                                             .condition(`RETURNING id`)
                                                             .build()).rows[0];
                     }
@@ -216,10 +216,12 @@ class Documents {
                 return { result: 'success', message: 'Successfully saved!', id: adopt.id }
             default:
                 if((await new Builder(`tbl_documents`).select().condition(`WHERE furr_parent_id= ${data.id}`).build()).rowCount > 0) {
+                    console.log('update')
                     let docu = (await new Builder(`tbl_documents`).select().condition(`WHERE furr_parent_id= ${data.id}`).build()).rows[0];
 
                     await new Builder(`tbl_documents`)
-                                        .update(`valid_id= '${data.valid_id}', picture= '${data.picture}', pet_cage= '${data.pet_cage}', status= 'pending', date_filed= CURRENT_TIMESTAMP`)
+                                        .update(`valid_id= '${data.valid_id}', picture= '${data.picture}', pet_cage= '${data.pet_cage}', status= 'pending', date_filed= CURRENT_TIMESTAMP,
+                                                        proof_billing= '${data.proof_billing}'`)
                                         .condition(`WHERE id= ${docu.id}`)
                                         .build();
 
@@ -232,10 +234,11 @@ class Documents {
                     return { result: 'success', message: 'Successfully saved!', id: adopt.id }
                 }
                 else {
+                    console.log('new');
                     let docu = (await new Builder(`tbl_documents`)
-                                                            .insert({ columns: `series_no, furr_parent_id, valid_id, picture, pet_cage, status, date_filed`, 
+                                                            .insert({ columns: `series_no, furr_parent_id, valid_id, picture, pet_cage, status, date_filed, proof_billing`, 
                                                                             values: `'${global.randomizer(7)}', ${data.id}, '${data.valid_id}', '${data.picture}', '${data.pet_cage}', 
-                                                                                            'pending', CURRENT_TIMESTAMP` })
+                                                                                            'pending', CURRENT_TIMESTAMP, '${data.proof_billing}'` })
                                                             .condition(`RETURNING id`)
                                                             .build()).rows[0];
                                                     

@@ -3,18 +3,22 @@ import { useContext } from "react";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { Link } from "react-router-dom";
 
 // Core
 import { ListCntxt } from "core/context/ListCntxt.func"; // Context
+import { ReminderCntxt } from "core/context/ReminderCntxt.func"; // Context
 
 // Constants
 import { btnadopt, petcontainer, petdesc, petfemale, petimage, petmale, petseries, pettag } from "../index.style"; // Styles
-import { Link } from "react-router-dom";
+
 
 const Items = () => {
     const { list } = useContext(ListCntxt);
+    const { setOpen, setLink } = useContext(ReminderCntxt);
 
     return (
+        <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
             <Grid container direction= "row" justifyContent= "flex-start" alignItems= "flex-start" sx= {{ padding: '0 0 40px 0' }}>
                 { list.length > 0 ?
                     list?.map((data, index) => (
@@ -38,7 +42,7 @@ const Items = () => {
                                         <Typography>{ (JSON.parse(data.tags)).map((tag, index) => ( <span key= { index } style= { pettag }>#{(tag.name).toLowerCase()}</span> )) }</Typography>
                                     </Stack>
                                     <Stack direction= "row" justifyContent= 'flex-end' alignItems= "center" sx= {{ width: '100%' }}>
-                                        <Typography sx= { btnadopt } component= { Link } to= { `/pets/${btoa(data.id)}/adopt` }>Adopt</Typography>
+                                        <Typography sx= { btnadopt } component= { Link } onClick= { () => { setOpen(true); setLink(`/pets/${btoa(data.id)}/adopt`); } }>Adopt</Typography>
                                     </Stack>
                                 </Stack>
                             </Stack>
@@ -50,6 +54,7 @@ const Items = () => {
                         </Stack>
                     </Grid>}
             </Grid>
+        </Stack>
     );
 }
 

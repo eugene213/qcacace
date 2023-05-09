@@ -87,18 +87,6 @@ class Schedule {
                             .build()).rows;
 
         if(data.type === 'adoption') {  
-            _intro = `Hi Fur Mom/Dad,
-
-                                Thank you for taking the time to be interviewed as part of the pet surrender process.
-                                We are pleased to inform you that you passed the interview. You can now proceed for the next phase by clicking the button below for the payment details.
-                                
-                                Please contact us for additional help.
-                                
-                                Yours truly,
-                                
-                                QC Animal Care and Adoption Center`;
-        }
-        else {
             _intro = `Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and
                                 Adoption Center.<br><br>
                                 We have reviewed your application and submitted documents, and we want to inform
@@ -109,6 +97,18 @@ class Schedule {
                                 <br>
                                 Please reply to this email if you have any questions or need to reschedule. We look
                                 forward to seeing you.`;
+        }
+        else {
+            _intro = `Hi Fur Mom/Dad,
+
+                            Thank you for taking the time to be interviewed as part of the pet surrender process.
+                            We are pleased to inform you that you passed the interview. You can now proceed for the next phase by clicking the button below for the payment details.
+                            
+                            Please contact us for additional help.
+                            
+                            Yours truly,
+                            
+                            QC Animal Care and Adoption Center`;
         }
 
         let mail = generator.generate({
@@ -197,10 +197,19 @@ class Schedule {
         let mail = generator.generate({
             body: {
                 name: 'Fur Mom/Dad',
-                intro: `We would like to confirm your set schedule on <b>${appointment.month}/${appointment.day}/${appointment.year}</b>. 
-                On this day, the QC Animal Care and Adoption Center staff will conduct an interview regarding your application and you will 
-                have the chance to see your preferred pet at our shelter located at Clemente St.,Lupang Pangako, Payatas, Quezon City, Philippines. 
-                We are looking forward to seeing you. `,
+                intro: `Hi Fur Mom/Dad,
+                We hope this message finds you well. We are writing to confirm your scheduled interview on 5/15/ 2023 at the QC Animal Care and Adoption Center. As part of our adoption process, 
+                our staff will conduct an interview to discuss your application and ensure the best possible match for both you and your potential furry friend.
+                We would like to bring to your attention that the interview would include psychological questions. Please be assured that these questions are designed to help us 
+                better understand your lifestyle, living situation, and expectations, and are in no way meant to be intrusive or offensive.
+                Please be advised that the interview can be conducted online via Google Meet using this 
+                link: <a href= "https://meet.google.com/ysw-mrug-emz">https://meet.google.com/ysw-mrug-emz</a>, or you may visit our center located at 
+                Clemente St., Lupang Pangako, Payatas, Quezon City. To avoid any inconvenience, we kindly ask that you confirm your preferred mode of interview by emailing us before 
+                your scheduled appointment. We value your interest in our adoption program, and we look forward to seeing you soon. However, please be informed that failure to confirm 
+                your appointment with us may result in the rejection of your application.
+                
+                Thank you for considering adoption as an option and for taking the time to communicate with us.
+                Yours truly, `,
                 
                 outro: 'Please contact me for additional help.'
             }

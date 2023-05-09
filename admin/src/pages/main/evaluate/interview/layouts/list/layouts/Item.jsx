@@ -42,7 +42,7 @@ const Item = () => {
                                 sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{ data.lname }, { data.fname }</Typography>
                             <Typography variant= "body2" 
                                 sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                                Schedule { data.type !== 'surrender' ? 
+                                Schedule: { data.type !== 'surrender' ? 
                                     `${data.month !== null ? (months()[data.month - 1]).name : ''} ${data.day !== null ? data.day : ''}, ${data.year !== null ? data.year : ''}` : '-'}</Typography>
                             <Typography variant= "body2" 
                                 sx= {{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Type: <b>{ (data.type).toUpperCase() }</b></Typography>

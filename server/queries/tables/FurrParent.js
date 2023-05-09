@@ -177,12 +177,16 @@ class FurrParent {
                         errors.push({ name: 'contact_no', message: 'Contact no. already used!' });
                     }
                 }
+                
+                if(global.compare(furr_parent.birthdate, data.birthdate)) {
+                    if((parseInt((new Date()).getFullYear()) - parseInt((new Date(data.birthdate)).getFullYear())) < 18) { errors.push({ name: 'birthdate', message: 'Age must be 18 and above!' }); }
+                }
 
                 if(!(errors.length > 0)) {
                     await new Builder(`tbl_furr_parent`)
                                         .update(`fname= '${(data.fname).toUpperCase()}', mname= ${data.mname !== '' ? `'${(data.mname).toUpperCase()}'` : null},
                                                         lname= '${(data.lname).toUpperCase()}', contact_no= '${data.contact_no}', gender= '${data.gender}', 
-                                                        address= ${data.address !== '' ? `'${(data.address).toUpperCase()}'` : null}, date_updated= CURRENT_TIMESTAMP`)
+                                                        address= ${data.address !== '' ? `'${(data.address).toUpperCase()}'` : null}, date_updated= CURRENT_TIMESTAMP, birthdate= '${data.birthdate}'`)
                                         .condition(`WHERE id= ${furr_parent.id}`)
                                         .build();
 
@@ -209,12 +213,16 @@ class FurrParent {
                         errors.push({ name: 'contact_no', message: 'Contact no. already used!' });
                     }
                 }
+                
+                if(global.compare(furr_parent.birthdate, data.birthdate)) {
+                    if((parseInt((new Date()).getFullYear()) - parseInt((new Date(data.birthdate)).getFullYear())) < 18) { errors.push({ name: 'birthdate', message: 'Age must be 18 and above!' }); }
+                }
 
                 if(!(errors.length > 0)) {
                     await new Builder(`tbl_furr_parent`)
                                         .update(`fname= '${(data.fname).toUpperCase()}', mname= ${data.mname !== '' ? `'${(data.mname).toUpperCase()}'` : null},
                                                         lname= '${(data.lname).toUpperCase()}', contact_no= '${data.contact_no}', gender= '${data.gender}', 
-                                                        address= ${data.address !== '' ? `'${(data.address).toUpperCase()}'` : null}, date_updated= CURRENT_TIMESTAMP`)
+                                                        address= ${data.address !== '' ? `'${(data.address).toUpperCase()}'` : null}, date_updated= CURRENT_TIMESTAMP, birthdate= '${data.birthdate}'`)
                                         .condition(`WHERE id= ${furr_parent.id}`)
                                         .build();
 

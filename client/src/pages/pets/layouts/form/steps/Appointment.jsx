@@ -11,7 +11,7 @@ import { availabledates, save } from "core/api/index.func"; // API
 import { successToast, usePost } from "core/global/function/index.func"; // Function
 
 // Constants
-import { btntxt, date, dateactive, datedisabled, select } from "../index.style"; // Styles
+import { btntxt, datenormal, dateactive, datedisabled, select } from "../index.style"; // Styles
 
 const Appointment = () => {
     const { id, userid, adoptid } = useParams();
@@ -60,7 +60,7 @@ const Appointment = () => {
                                                 <Typography variant= "h6" sx= { datedisabled }>{ d.day }</Typography> : 
                                                 d.day < new Date().getDate() || d.slot === 0 ?
                                                     <Typography variant= "h6" sx= { datedisabled }>{ d.day }</Typography> :
-                                                    <Typography variant= "h6" sx= { day === d.day ? dateactive : date }
+                                                    <Typography variant= "h6" sx= { day === d.day ? dateactive : datenormal }
                                                         onClick= { () => { setDay(d.day); setValue('appday', d.day); setError('appday', { message: '' }); } }>{ d.day }</Typography> }
                                         </Stack>
                                     </Grid>    

@@ -42,10 +42,10 @@ const Item = () => {
                             <Typography sx= { approve } onClick= { () => approval({ table: 'tbl_services', type: 'approve', data: data }) }>
                                 <FontAwesomeIcon icon= { solid('square-check') } size= "xl" />
                             </Typography> : '' }
-                        { data.status === 'pending' ? 
+                        {/* { data.status === 'pending' ? 
                             <Typography sx= { disapprove } onClick= { () => reject({ table: 'tbl_services', type: 'reject', data: data }) }>
                                 <FontAwesomeIcon icon= { solid('square-xmark') } size= "xl" />
-                            </Typography> : '' }
+                            </Typography> : '' } */}
                         { data.status !== 'pending' ? 
                             data.status === 'released' ? 
                                 <Chip variant= "default" size= "small" label= "Released" sx= {{ backgroundColor: '#4cd137', color: '#FFFFFF', textTransform: 'uppercase', fontWeight: 'bold' }} /> : 

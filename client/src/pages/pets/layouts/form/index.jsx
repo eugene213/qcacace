@@ -70,7 +70,7 @@ const Index = () => {
                 <Box sx= { card }>
                     <Grid container direction= "row" justifyContent= {{ xs: 'center', sm: 'flex-start', md: 'space-evenly' }} alignItems= "stretch" spacing= { 5 }>
                         <Grid item xs= { 12 } md= { 4 } lg= { 3 }><PetInfo /></Grid>
-                        <Grid item xs= { 12 } md= { 6 } lg= { 5 }>
+                        <Grid item xs= { 12 } md= { 6 } lg= { 5 } sx= {{ height: '100%', overflow: 'hidden' }}>
                             <Routes>
                                 <Route exact path= "/" element= { <ThemeProvider theme= { theme(email) }><Registration /></ThemeProvider> } />
                                 <Route exact path= "/:userid/verify" element= { <ThemeProvider theme= { theme(code) }><Verifying /></ThemeProvider> } />

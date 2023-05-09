@@ -2,27 +2,32 @@
 import { Box, Grid, Skeleton, Stack, TextField, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+
+// Core
+import { RecommendationCntxt } from "core/context/Recommendation"; // Context
+
+// Layouts
+import Items from "./layouts/Items";
+import Recommended from "./layouts/Recommended";
+import Recommendation from "../dialog/recommendation";
+import Reminder from "../dialog/reminder";
 
 // Constants
 import { btnrecommend, petcontainer, search } from "./index.style"; // Styles
 
-// Layouts
-import Items from "./layouts/Items"; // Items
-import Recommended from "./layouts/Recommended"; // Recommend
+const Index = ({ fetching, find, finding }) => {
+    const { setOpen, recommendation } = useContext(RecommendationCntxt);
 
-const Index = ({ setDialog, fetching, recommended, recommendation, recommending, find, finding }) => {
     useEffect(() => { if(localStorage.getItem('recommend') !== null) recommendation(JSON.parse(localStorage.getItem('recommend'))) }, [ recommendation ]);
     
     return (
         <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" sx= {{ width: '100%', height: '100%' }} spacing= { 1 }>
-            <Stack direction= "row" justifyContent= "space-between" alignItems= "center" spacing= { 1 }>
-                <Typography variant= "h6" sx= {{ fontFamily: 'Tommy Bolder', color: '#1B4168' }}>Recommended</Typography>
-                <Typography variant= "h6" sx= { btnrecommend } onClick= { () => setDialog(true) }><FontAwesomeIcon icon= { solid('sliders') } /></Typography>
+            <Stack direction= "row" justifyContent= { localStorage.getItem('recommend') !== null ? "space-between" : "flex-end" } alignItems= "center" spacing= { 1 }>
+                { localStorage.getItem('recommend') !== null ? <Typography variant= "h6" sx= {{ fontFamily: 'Tommy Bolder', color: '#1B4168' }}>Recommended</Typography> : '' }
+                <Typography variant= "h6" sx= { btnrecommend } onClick= { () => { setOpen(true) } }><FontAwesomeIcon icon= { solid('sliders') } /></Typography>
             </Stack>
-            <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
-                <Recommended recommended= { recommended } recommending= { recommending } />
-            </Stack>
+            { localStorage.getItem('recommend') !== null ? <Recommended /> : '' }
             <Stack direction= "row" justifyContent= "space-between" alignItems= "center" spacing= { 1 }>
                 <Typography variant= "h6" sx= {{ fontFamily: 'Tommy Bolder', color: '#1B4168' }}>List</Typography>
                 <form autoComplete= "off">
@@ -57,6 +62,8 @@ const Index = ({ setDialog, fetching, recommended, recommendation, recommending,
                         </Grid>
                     )) }
                 </Grid> }
+                <Recommendation />
+                <Reminder />
         </Stack>
     );
 }
