@@ -19,30 +19,30 @@ const Index = () => {
         <Dialog fullScreen= { fullscreen } open= { open } fullWidth maxWidth= "sm">
            <DialogContent sx= {{ padding: '30px 50px' }}>
                <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 3 }>
-                   <Typography>You are eligible to adopt if you are at least 18 years old and meet the following condition:</Typography>
+                   <Typography sx={{ fontWeight: 'bold', fontSize: '20px'}}>You are eligible to adopt if you are at least 18 years old and meet the following condition:</Typography>
                    <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 } sx= {{ paddingLeft: '20px' }}>
-                       <Typography>* If you are residence of Quezon City.</Typography>
-                       <Typography>* If you have the capacity to take care of pet.</Typography>
+                       <Typography sx={{ fontWeight: 'bold'}}>* If you are residence of Quezon City.</Typography>
+                       <Typography sx={{ fontWeight: 'bold'}}>* If you have the capacity to take care of pet.</Typography>
                    </Stack>
                    <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 2 }>
                        <Typography sx= {{ fontWeight: 'bold', fontStyle: 'italic' }}>Reminder:</Typography>
                        <Typography>The adoption process of QCACAC has (4) phases.</Typography>
-                       <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
-                           <Typography><b>1. Interview.</b> In the process, we need to confirm if you are eligible to adopt and take care of the pet.
-                               We conduct the interview through google meet on on-site.</Typography>
-                           <Typography variant= "body2" sx= {{ fontStyle: 'italic' }}>Note: The QCACAC staff may also conduct a home visit if needed.</Typography>
-                       </Stack>
                        <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 2 }>
                            <Typography><b>2. Documentary Requirements.</b> After the interview, the adopter needs to pass the document requirements for validation purpose 
                                and contract making such as:</Typography>
                            <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 } sx= {{ paddingLeft: '20px' }}>
-                               <Typography>* QC ID or Brgy. ID.</Typography>
-                               <Typography>* 1x1 picture.</Typography>
-                               <Typography>* Picture of the house, showing the area designated for the pet.</Typography>
-                               <Typography>* Proof of billing / pay slip.</Typography>
+                               <Typography sx={{ fontWeight: 'bold'}}>* QC ID or Brgy. ID.</Typography>
+                               <Typography sx={{ fontWeight: 'bold'}}>* 1x1 picture.</Typography>
+                               <Typography sx={{ fontWeight: 'bold'}}>* Picture of the house, showing the area designated for the pet.</Typography>
+                               <Typography sx={{ fontWeight: 'bold'}}>* Proof of billing / Pay slip.</Typography>
                            </Stack>
                        </Stack>
-                       <Typography><b>3. Adoption Fee.</b> The QCACAC has an adoption fee of Php 500/pet. (Ordinance No. SP-3132-S-2022).</Typography>
+                       <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
+                           <Typography><b>1. Interview.</b> In the process, we need to confirm if you are eligible to adopt and take care of the pet.
+                               We conduct the interview through google meet on on-site.</Typography>
+                           <Typography variant= "body2" sx= {{ fontStyle: 'italic', fontWeight: 'bold' }}>Note: The QCACAC staff may also conduct a home visit if needed.</Typography>
+                       </Stack>
+                       <Typography><b>3. Adoption Fee.</b> The QCACAC has an adoption fee of <b>Php 500/pet</b>. (Ordinance No. SP-3132-S-2022).</Typography>
                        <Typography><b>4. Releasing of Pet.</b> Once the three steps are done, you may now claim the pet at QCACAC located at Clemente St., 
                            Lupang Pangako, Payatas, Quezon City.</Typography>
                    </Stack>

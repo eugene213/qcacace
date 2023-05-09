@@ -19,7 +19,7 @@ const ValidId = ({ fetching }) => {
 
     return (
         <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
-            <Typography gutterBottom sx={{ fontWeight:'600'}}>*QCID or any valid ID</Typography>
+            <Typography gutterBottom sx={{ fontWeight:'600'}}>*QC ID or Brgy. ID.</Typography>
             <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
                 { fetching ? <Skeleton variant= "rounded" sx= {{ width: '100%', height: '200px' }} /> :
                     <Stack direction= "row" justifyContent= "center" alignItems= "center" 

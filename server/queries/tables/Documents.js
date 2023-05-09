@@ -84,11 +84,18 @@ class Documents {
         if(data.type === 'adoption') {
             _intro = `Hi Fur Mom/Dad,
 
-                                Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and Adoption Center.
-                                
-                                We have reviewed your application and submitted documents, and we want to inform you that you are pre-qualified for the next phase of the adoption process. 
-                                Please wait for the interview via google meet or phone call or you may also proceed for the onsite interview located at Clemente St., Lupang Pangako, Payatas, Quezon City, 
-                                Philippines if you wish to visit the pet.
+                                 Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and Adoption Center. 
+                                 We have reviewed your application and submitted documents, and we want to inform you that you are pre-qualified 
+                                 for the next phase of the adoption process which is the interview.<br><br><br>
+
+                                 Please confirm your set scheduled on <b>${appointment.month}/${appointment.day}/${appointment.year}</b>.
+                                 The interview can be conducted online via Google Meet using this 
+                                 link: <a href= "https://meet.google.com/ysw-mrug-emz">https://meet.google.com/ysw-mrug-emz</a>, 
+                                 or you may visit our center located at Clemente St., Lupang Pangako, Payatas, Quezon City.<br><br>
+
+                                 To avoid any inconvenience, we kindly ask that you confirm your preferred mode of interview by emailing us before your 
+                                 scheduled appointment. We value your interest in our adoption program, and we look forward to seeing you soon. However, 
+                                 please be informed that failure to confirm your appointment with us may result in the rejection of your application.<br><br> 
                                 
                                 Please reply to this email if you have any questions or need to reschedule. We look forward to seeing you.
                                 

@@ -16,7 +16,7 @@ const ValidId = () => {
 
     return (
         <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
-            <Typography gutterBottom variant= "body2" sx={{ fontWeight:'600'}}>*QCID or any valid ID</Typography>
+            <Typography gutterBottom variant= "body2" sx={{ fontWeight:'600'}}>*QC ID or Brgy. ID.</Typography>
             <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
                 <Stack direction= "row" justifyContent= "center" alignItems= "center" 
                     sx= {{ backgroundColor: '#e0e0e0', width: '100%', height: '200px', overflow: 'hidden', borderRadius: '8px' }}>

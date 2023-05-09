@@ -87,16 +87,19 @@ class Schedule {
                             .build()).rows;
 
         if(data.type === 'adoption') {  
-            _intro = `Thank you so much for taking the time to apply for the pet adoption in QC Animal Care and
-                                Adoption Center.<br><br>
-                                We have reviewed your application and submitted documents, and we want to inform
-                                you that you are pre-qualified for the next phase of the adoption process.
-                                Please wait for the interview via google meet or phone call or you may also proceed for
-                                the onsite interview located at Clemente
-                                St., Lupang Pangako, Payatas, Quezon City, Philippines if you wish to visit the pet. <br>
-                                <br>
-                                Please reply to this email if you have any questions or need to reschedule. We look
-                                forward to seeing you.`;
+            _intro = `Hi Fur Mom/Dad,
+            
+                            Thank you for taking the time to be interviewed as part of the pet adoption process.<br><br>
+                             
+                            It brings us great pleasure to inform you that your interview has been successful, and you have PASSED 
+                            the necessary criteria. As a result, we are happy to invite you to proceed to the next phase of the adoption 
+                            process by clicking on the button below to obtain the necessary payment details.<br><br>
+                             
+                            Please contact us for additional help.
+                            
+                            Yours truly,
+                            
+                            QC Animal Care and Adoption Center`;
         }
         else {
             _intro = `Hi Fur Mom/Dad,
@@ -120,7 +123,7 @@ class Schedule {
             }
         });
 
-        transporter.sendMail({ from: global.USER, to: data.email, subject: `Application Interview Status`, html: mail });
+        transporter.sendMail({ from: global.USER, to: data.email, subject: `QC Animal Care and Adoption Center - Passed - Interview`, html: mail });
         return { result: 'success', message: 'Interview passed!', list: list }
     }
 
@@ -198,15 +201,20 @@ class Schedule {
             body: {
                 name: 'Fur Mom/Dad',
                 intro: `Hi Fur Mom/Dad,
-                We hope this message finds you well. We are writing to confirm your scheduled interview on 5/15/ 2023 at the QC Animal Care and Adoption Center. As part of our adoption process, 
-                our staff will conduct an interview to discuss your application and ensure the best possible match for both you and your potential furry friend.
+                We hope this message finds you well. We are writing to confirm your scheduled interview on <b>${appointment.month}/${appointment.day}/${appointment.year}</b>.
+                at the QC Animal Care and Adoption Center. As part of our adoption process, 
+                our staff will conduct an interview to discuss your application and ensure the best possible match for both you and your potential furry friend.<br><br>
+
                 We would like to bring to your attention that the interview would include psychological questions. Please be assured that these questions are designed to help us 
-                better understand your lifestyle, living situation, and expectations, and are in no way meant to be intrusive or offensive.
+                better understand your lifestyle, living situation, and expectations, and are in no way meant to be intrusive or offensive.<br><br>
+
                 Please be advised that the interview can be conducted online via Google Meet using this 
                 link: <a href= "https://meet.google.com/ysw-mrug-emz">https://meet.google.com/ysw-mrug-emz</a>, or you may visit our center located at 
                 Clemente St., Lupang Pangako, Payatas, Quezon City. To avoid any inconvenience, we kindly ask that you confirm your preferred mode of interview by emailing us before 
-                your scheduled appointment. We value your interest in our adoption program, and we look forward to seeing you soon. However, please be informed that failure to confirm 
-                your appointment with us may result in the rejection of your application.
+                your scheduled appointment.<br><br> 
+                
+                We value your interest in our adoption program, and we look forward to seeing you soon. However, please be informed that failure to confirm 
+                your appointment with us may result in the rejection of your application.<br><br>
                 
                 Thank you for considering adoption as an option and for taking the time to communicate with us.
                 Yours truly, `,

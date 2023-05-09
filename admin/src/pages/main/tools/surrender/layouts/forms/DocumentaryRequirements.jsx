@@ -20,7 +20,7 @@ const DocumentaryRequirements = () => {
             <Grid container direction= "row" justifyContent= "flex-start" alignItems= "flex-start" spacing= { 2 }>
                 <Grid item xs= { 12 } md= { 6 } lg= { 4 }>
                     <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch" spacing= { 1 }>
-                        <Typography gutterBottom variant= "body2" sx={{ fontWeight:'600'}}>*QCID or any valid ID</Typography>
+                        <Typography gutterBottom variant= "body2" sx={{ fontWeight:'600'}}>*QC ID or Brgy. ID.</Typography>
                         <Stack direction= "column" justifyContent= "flex-start" alignItems= "stretch">
                             <Stack direction= "row" justifyContent= "center" alignItems= "center" 
                                 sx= {{ backgroundColor: '#e0e0e0', width: '100%', height: '200px', overflow: 'hidden', borderRadius: '8px' }}>
